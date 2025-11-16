@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Education Web App",
+  "version": "1.1.0",
+  "action": { "default_popup": "popup.html" },
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["https://vr.vex.com/*"],
+
+  "content_scripts": [
+    {
+      "matches": ["https://vr.vex.com/*"],
+      "js": ["webgazer.js", "vex-tracker.js"],
+      "run_at": "document_end"
+    }
+  ]
+}

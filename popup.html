@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Head Tracker</title>
+    <style>
+  html, body {
+  width: 600px;
+  height: 580px;
+  margin: 0;
+  padding: 0;
+  font: 14px system-ui;
+  background: #fff;
+  overflow-y: auto;   
+  overflow-x: hidden;
+}
+
+  #frame {
+    width: 100%;
+    height: 360px;   /* ← increase this to show more camera area */
+    border: 0;
+    border-radius: 10px;
+    background: #f6f6f6;
+  }
+
+  #tools {
+    padding: 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  button {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background: #f8f8f8;
+  }
+
+  #out {
+    padding: 10px 12px;
+    max-height: 160px;  /* area below the camera for extracted text */
+    overflow-y: auto;
+    border-top: 1px solid #eee;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+  }
+
+  #status {
+    color: #666;
+    margin-left: 8px;
+  }
+</style>
+
+  </head>
+  <body>
+    <!-- Your camera/tracker embedded -->
+    <iframe id="frame" src="about:blank" allow="camera; microphone"></iframe>
+
+    <!-- Controls for scraping the active tab -->
+    <div id="tools">
+      <button id="extract">Extract VEX blocks</button>
+      <span id="status"></span>
+    </div>
+    <div id="out"></div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
+
